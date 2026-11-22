@@ -12,6 +12,27 @@ C-API binding layer. The engine (`bson_core/`) is a verbatim port of the
 **no Arrow, no VGI, and no `mongodb` driver**; only the transport layer was
 replaced with direct C-API vector I/O.
 
+## Install
+
+Once accepted into [DuckDB's community extensions](https://github.com/duckdb/community-extensions):
+
+```sql
+INSTALL bson FROM community;
+LOAD bson;
+```
+
+Until it lands in the community registry, build from source:
+
+```bash
+git clone https://github.com/alitrack/duckdb-bson && cd duckdb-bson
+git submodule update --init --recursive
+make release          # -> build/release/bson.duckdb_extension
+```
+
+```sql
+LOAD 'path/to/bson.duckdb_extension';
+```
+
 ## Functions (v1)
 
 | Function | Signature | Returns |
