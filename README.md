@@ -71,7 +71,8 @@ SELECT bson_field(b, 'a.x', '') AS x,        -- 1
        bson_field(b, 's', '')   AS s,        -- hi
        bson_field(b, 'o', 'objectid') AS o,  -- 64636261605f4e3d2c1b0a09
        bson_type_of(b, '') AS top,           -- object
-       bson_type_of(b, 'a') AS a_type;       -- object
+       bson_type_of(b, 'a') AS a_type        -- object
+FROM d;
 -- ObjectId helpers.
 SELECT bson_objectid_hex(CAST(from_hex('64636261605f4e3d2c1b0a09') AS BLOB));
 SELECT to_hex(bson_objectid_from_hex('64636261605f4e3d2c1b0a09'));
